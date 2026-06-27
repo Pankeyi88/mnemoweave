@@ -1,0 +1,39 @@
+﻿{
+  "version": 3,
+  "name": "mnemoweave",
+  "display_name": "MnemoWeave",
+  "description": "Agent-agnostic persistent memory weave backed by Markdown files.",
+  "memory_root": "E:\\_memories",
+  "entrypoint": "scripts\\memory.py",
+  "runtime": "python",
+  "overrides": {
+    "memory_root_env": "AGENT_MEMORY_ROOT",
+    "project_env": "AGENT_MEMORY_PROJECT"
+  },
+  "commands": {
+    "preview": "python C:\\Users\\sypky\\.agents\\skills\\mnemoweave\\scripts\\memory.py [--root <path>] [--project <name>] preview [--days 7]",
+    "recall": "python C:\\Users\\sypky\\.agents\\skills\\mnemoweave\\scripts\\memory.py [--root <path>] [--project <name>] recall [--query <text>] [--entity <name>] [--limit 20]",
+    "memorize": "python C:\\Users\\sypky\\.agents\\skills\\mnemoweave\\scripts\\memory.py [--root <path>] [--project <name>] memorize --type observation|task_complete --agent <name> --entities <items...> --summary <text> --body <markdown>"
+  },
+  "output": {
+    "preview": "text",
+    "recall": "json",
+    "memorize": "text"
+  },
+  "memory_schema": {
+    "format": "markdown-with-yaml-frontmatter",
+    "filename": "YYYY-MM-DD-NNN.md",
+    "frontmatter": ["type", "agent", "summary", "created", "entities"],
+    "optional_frontmatter": ["project"],
+    "body": "markdown"
+  },
+  "resolution": {
+    "memory_root": ["--root", "AGENT_MEMORY_ROOT", "manifest.memory_root", "E:\\_memories"],
+    "project": ["--project", "AGENT_MEMORY_PROJECT", null]
+  },
+  "usage": {
+    "preview": "Run at agent startup or when a recent context snapshot is useful.",
+    "recall": "Run when the user references previous work, preferences, entities, or cross-agent context.",
+    "memorize": "Run after completing useful tasks or discovering durable user/project context."
+  }
+}
