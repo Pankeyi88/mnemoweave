@@ -3,18 +3,16 @@
 Agent-agnostic persistent memory weave. Drop it into your AI agent's skill directory and give it durable memory — no databases, no dependencies, just Markdown files.
 
 ```
-your-project/
-└── .agent/
-    └── skills/
-        └── mnemoweave/    ← clone here
+~/.agent/
+└── skills/
+    └── mnemoweave/    ← clone here
 ```
 
 ## Quick Start
 
 ```bash
 # Install for your agent
-cd your-project
-git clone https://github.com/Pankeyi88/mnemoweave.git .agent/skills/mnemoweave
+git clone https://github.com/Pankeyi88/mnemoweave.git ~/.agent/skills/mnemoweave
 ```
 
 That's it. Your agent will automatically pick up the `SKILL.md` and `mnemoweave.json` and start using `preview` / `recall` / `memorize` as needed.
