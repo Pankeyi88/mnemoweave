@@ -1,4 +1,4 @@
-﻿---
+---
 name: mnemoweave
 description: MnemoWeave is an agent-agnostic persistent memory weave. Memorize observations, recall past context, and preview recent activity. Memories are stored as Markdown files in a configurable memory root.
 ---
